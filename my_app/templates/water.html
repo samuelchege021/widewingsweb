@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Water Treatment Projects - Wide Wings Plumbers
+{% endblock title %}
+
+{% block content %}
+<!-- Water Treatment Projects Section Start -->
+<section id="water-treatment" class="services section">
+    <!-- Section Title and Description -->
+    <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Water Treatment Projects</h2>
+        <p class="lead">
+            Wide Wings Plumbers offers reliable and efficient water treatment solutions to ensure clean and safe water for your home or business. 
+            Our water treatment systems are designed to remove impurities, enhance water quality, and protect your health. 
+            From small-scale domestic setups to large commercial installations, we provide customized services to meet your specific needs.
+        </p>
+        <a href="{%url 'plumbing'%}" class="btn btn-primary mt-3">Learn More About Our Services</a>
+    </div>
+
+
+
+      
+    <h2 class="text-center mt-5">Gallery</h2>
+    <!-- Water Treatment Projects Gallery -->
+    <div class="container mt-5">
+        <div class="row">
+            {% for water_treatment in water_treatments %}
+                <div class="col-md-3 mt-3">
+                    <div class="card shadow-sm">
+                        <img src="{{ water_treatment.image.url }}" class="card-img-top" alt="{{ water_treatment.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ water_treatment.name }}</h5>
+                            {% comment %} <p class="card-text">{{ water_treatment.description|slice:"0:53" }}...</p> {% endcomment %}
+                            <!-- Optional: Add a button or link here -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section><!-- /Water Treatment Projects Section -->
+{% endblock %}

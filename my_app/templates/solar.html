@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Solar Installation Projects - Wide Wings Plumbers
+{% endblock title %}
+
+{% block content %}
+<!-- Solar Installation Projects Section Start -->
+<section id="solar-installations" class="services section">
+    <!-- Section Title -->
+    <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Solar Installation Projects</h2>
+        <p class="lead">
+            At Wide Wings Plumbers, we offer top-notch solar installation services designed to help you harness the power of the sun. 
+            Our team of experts provides customized solutions that meet your energy needs while ensuring efficiency and sustainability.
+            Whether it's residential, commercial, or industrial, we bring you clean energy solutions that save costs and promote a greener future.
+        </p>
+        <a href="{%url 'contact'%}" class="btn btn-primary mt-3">Get a Free Consultation</a>
+    </div>
+
+
+      
+    <h2 class="text-center mt-5">Gallery</h2>
+    <!-- Solar Projects Gallery -->
+    <div class="container mt-5">
+        <div class="row">
+            {% for solar_installation in solar_installations %}
+                <div class="col-md-3 mt-3">
+                    <div class="card shadow-sm">
+                        <img src="{{ solar_installation.image.url }}" class="card-img-top" alt="{{ solar_installation.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ solar_installation.name }}</h5>
+                            {% comment %} <p class="card-text">{{ solar_installation.description|slice:"0:53" }}...</p> {% endcomment %}
+                            <!-- Optional: Add a button or link here -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section><!-- /Solar Installation Projects Section -->
+{% endblock %}

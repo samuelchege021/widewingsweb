@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Advertisement Section -->
+    <div class="row align-items-center bg-light p-5 rounded">
+        <div class="col-md-7">
+            <h2 class="display-6">Transform Waste into Value with Our Biodigesters</h2>
+            <p class="lead">
+                At Wide Wings Plumbers, we specialize in providing eco-friendly and efficient biodigester solutions. 
+                Our biodigesters and septic systems are designed to reduce waste, minimize environmental impact, and provide a sustainable solution for waste management. 
+                Whether you're looking for residential or commercial installations, our expert team is here to offer quality services tailored to your needs.
+            </p>
+            <a href="{%url 'contact'%}" class="btn btn-primary mt-3">Contact Us</a>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="path/to/ad_image.jpg" class="img-fluid rounded" alt="Biodigester Solutions">
+        </div>
+    </div>
+  
+    <h2 class="text-center mt-5">Gallery</h2>
+    <!-- Biodigester Projects Section -->
+    <div class="mt-5">
+        <h2>Biodigester Projects</h2>
+        <div class="row">
+            {% for biodigester in biodigesters %}
+                <div class="col-md-3 mt-3">
+                    <div class="card">
+                        <img src="{{ biodigester.image.url }}" class="card-img-top" alt="{{ biodigester.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ biodigester.name }}</h5>
+                            {% comment %} <p class="card-text">{{ biodigester.description|slice:"0:53" }}...</p> {% endcomment %}
+                            <!-- Optional: Add a button or link here -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
