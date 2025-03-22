@@ -11,8 +11,8 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
-     <link href="img/favicon.ico" rel="icon"> 
+    {% comment %} <!-- Favicon -->
+     <link href="img/favicon.ico" rel="icon">  {% endcomment %}
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -496,18 +496,22 @@
 
 
     <!-- Testimonial Start -->
+    
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center">
-                <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-5">Our Clients Say!</h1>
+                <h6 class="text-secondary text-uppercase">Testimonials</h6>
+                <h1 class="mb-5">What Our Clients Say</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-0">
+                            "Wide Wings Plumbers transformed my plumbing system! The team was professional, timely, and efficient. I recommend them to everyone."
+                        </p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{% static "img/testimonial-1.jpg"%}" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -515,14 +519,17 @@
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
                     </div>
-                    <h5 class="mb-1">Client Name</h5>
-                    <p class="m-0">Profession</p>
+                    <h5 class="mb-1">Emily R.</h5>
+                    <p class="m-0">Homeowner</p>
                 </div>
+                <!-- Testimonial 2 -->
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-0">
+                            "Their team installed a biodigester for my property. Excellent service from start to finish. Truly experts in their field!"
+                        </p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{%static "img/testimonial-2.jpg"%}" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -530,14 +537,17 @@
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
                     </div>
-                    <h5 class="mb-1">Client Name</h5>
-                    <p class="m-0">Profession</p>
+                    <h5 class="mb-1">James K.</h5>
+                    <p class="m-0">Property Manager</p>
                 </div>
+                <!-- Testimonial 3 -->
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-0">
+                            "Wide Wings Plumbers helped me resolve a major water leakage issue. Their attention to detail and swift action were impressive!"
+                        </p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{%static "img/testimonial-3.jpg"%}" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{% static 'img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -545,14 +555,17 @@
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
                     </div>
-                    <h5 class="mb-1">Client Name</h5>
-                    <p class="m-0">Profession</p>
+                    <h5 class="mb-1">Sophia L.</h5>
+                    <p class="m-0">Business Owner</p>
                 </div>
+                <!-- Testimonial 4 -->
                 <div class="testimonial-item text-center">
                     <div class="testimonial-text bg-light text-center p-4 mb-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                        <p class="mb-0">
+                            "Outstanding service! From solar installations to plumbing repairs, Wide Wings Plumbers is my go-to company. Highly satisfied!"
+                        </p>
                     </div>
-                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{%static "img/testimonial-4.jpg"%}" style="width: 80px; height: 80px;">
+                    <img class="bg-light rounded-circle p-2 mx-auto mb-2" src="{% static 'img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
                     <div class="mb-2">
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
@@ -560,12 +573,13 @@
                         <small class="fa fa-star text-secondary"></small>
                         <small class="fa fa-star text-secondary"></small>
                     </div>
-                    <h5 class="mb-1">Client Name</h5>
-                    <p class="m-0">Profession</p>
+                    <h5 class="mb-1">Liam T.</h5>
+                    <p class="m-0">Engineer</p>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- Testimonial End -->
 
 <!-- Footer Start -->

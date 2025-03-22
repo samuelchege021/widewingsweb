@@ -1,113 +1,60 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="container mt-5">
-    <!-- Introduction to Plumbing Services -->
-    <div class="row align-items-center bg-light p-5 rounded">
-        <div class="col-md-7">
-            <h2 class="display-6">Comprehensive Plumbing Services</h2>
-            <p class="lead">
-                At Wide Wings Plumbers, we provide a full range of plumbing services tailored to meet your every need. 
-                From fixing water leaks to complete new constructions, our skilled professionals ensure quality service with efficiency and reliability.
-            </p>
-            <a href="{%url 'contact'%}" class="btn btn-primary mt-3">Contact Us</a>
-        </div>
-        <div class="col-md-5 text-center">
-            {% comment %} <img src="#" class="img-fluid rounded" alt="Plumbing Services"> {% endcomment %}
+<!-- Hero Section with Background Image -->
+<section class="hero bg-image" style="background-image: url('/static/images/hero_background.jpg');">
+    <div class="hero-overlay">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold">Quality Windows & Doors Solutions</h1>
+            <p class="lead">We provide high-quality windows and doors that enhance your home's beauty and security. Get in touch with us today!</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg shadow-sm">Request a Quote</a>
         </div>
     </div>
+</section>
 
-   <!-- Plumbing Services Section -->
-    <h2 class="mt-5">Our Plumbing Services</h2>
-  
-
-    <!-- Individual Service Cards -->
-    <div class="row mt-5">
-        <div class="col-md-4">
-            <div class="card">
-                {% comment %} <img src="#" class="card-img-top" alt="Advanced Leak Repair Services"> {% endcomment %}
+<!-- Services Section -->
+<section id="services" class="container my-5">
+    <h2 class="text-center text-secondary mb-4">Our Services</h2>
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0">
+                <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
                 <div class="card-body">
-                    <h5 class="card-title">Advanced Leak Repair Services</h5>
-                    <p class="card-text">Quick and effective solutions for all types of water leakages, ensuring no further damage to your property. Our team uses state-of-the-art technology to detect leaks, even in hard-to-reach areas, and repair them swiftly.</p>
-                    <p class="card-text">We provide comprehensive leak repair services for residential, commercial, and industrial properties. Our experts are available around the clock to handle emergencies, minimizing water loss and preventing costly repairs.</p>
-                    <p class="card-text">Trust Wide Wings Plumbers to address your leak issues with precision and care, delivering peace of mind and restoring the integrity of your plumbing system.</p>
+                    <h5 class="card-title text-primary">{{ service.title }}</h5>
+                    <p class="card-text text-muted">{{ service.description|slice:"0:100" }}...</p>
+                    <a href="{% url 'service_detail' service.id %}" class="btn btn-outline-primary btn-sm">Learn More</a>
                 </div>
             </div>
         </div>
-    
-        <div class="col-md-4">
-            <div class="card">
-                {% comment %} <img src="#" class="card-img-top" alt="Full-Service New Build Plumbing"> {% endcomment %}
-                <div class="card-body">
-                    <h5 class="card-title">Full-Service New Build Plumbing</h5>
-                    <p class="card-text">Expert plumbing installations for new buildings, from initial piping to final fittings. Our team works closely with contractors to ensure that all plumbing systems are up to code and meet your specific requirements.</p>
-                    <p class="card-text">We offer tailored solutions for residential, commercial, and industrial new builds, utilizing high-quality materials and innovative techniques to guarantee durability and efficiency. Every installation is inspected thoroughly to ensure optimal performance and longevity.</p>
-                    <p class="card-text">At Wide Wings Plumbers, we are committed to delivering reliable and timely plumbing services that keep your construction project on schedule and within budget.</p>
-                </div>
-            </div>
-        </div>
-    
-        <div class="col-md-4">
-            <div class="card">
-                {% comment %} <img src="#" class="card-img-top" alt="Bathroom Drainage Services"> {% endcomment %}
-                <div class="card-body">
-                    <h5 class="card-title">Bathroom Drainage Services</h5>
-                    <p class="card-text">Fast and reliable unblocking services to keep your bathrooms and toilets fully functional. Our skilled technicians use the latest equipment to clear blockages quickly and efficiently, minimizing disruption to your daily routine.</p>
-                    <p class="card-text">We handle all types of clogs, from minor obstructions to severe blockages, using eco-friendly methods that are safe for your pipes and the environment. Our team also offers preventive maintenance to help avoid future blockages.</p>
-                    <p class="card-text">Choose Wide Wings Plumbers for prompt, professional service that keeps your plumbing flowing smoothly.</p>
-                </div>
-            </div>
-        </div>
-    
-        <div class="col-md-4 mt-4">
-            <div class="card">
-                {% comment %} <img src="#" class="card-img-top" alt="Pipe Installation and Replacement"> {% endcomment %}
-                <div class="card-body">
-                    <h5 class="card-title">Pipe Installation and Replacement</h5>
-                    <p class="card-text">High-quality piping and re-piping services to maintain a safe and efficient water flow system. Our team specializes in both new installations and replacing outdated or damaged pipes to enhance water quality and system performance.</p>
-                    <p class="card-text">We use durable, long-lasting materials and follow industry best practices to ensure your plumbing system is built to last. From small residential projects to large-scale commercial piping, we handle it all with expertise and care.</p>
-                    <p class="card-text">Count on Wide Wings Plumbers for meticulous attention to detail and exceptional customer service on every piping project.</p>
-                </div>
-            </div>
-        </div>
-    
-        <div class="col-md-4 mt-4">
-            {% comment %} <div class="card">
-                <img src="#" class="card-img-top" alt="Emergency Plumbing Solutions"> {% endcomment %}
-                <div class="card-body">
-                    <h5 class="card-title">Emergency Plumbing Solutions</h5>
-                    <p class="card-text">Professional repairs for all your plumbing needs, from minor fixes to major repairs. Our experienced plumbers are equipped to handle a wide range of issues, including burst pipes, faulty faucets, and malfunctioning water heaters.</p>
-                    <p class="card-text">We provide 24/7 emergency services to address urgent plumbing problems quickly and efficiently, minimizing damage and reducing downtime. Our team is committed to finding permanent solutions, ensuring your plumbing system functions optimally.</p>
-                    <p class="card-text">Rely on Wide Wings Plumbers for fast, reliable repair services that keep your home or business running smoothly, no matter the time of day.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+</section>
 
+<!-- Call to Action Section -->
+<section class="cta bg-primary text-white text-center py-5">
+    <div class="container">
+        <h2 class="display-4">Looking for the Best in Windows & Doors?</h2>
+        <p class="lead">Let us help you find the perfect solution for your home. Contact us today for more details!</p>
+        <a href="{% url 'contact' %}" class="btn btn-light btn-lg">Get in Touch</a>
+    </div>
+</section>
 
-
-
-    
-    <h2 class="text-center mt-5">Gallery</h2>
-
-
-                                                
-    
-        <div class="row">
-            
-            {% for item in plumbing_items %}
-                <div class="col-md-4 mt-4">
-                    <div class="card">
-                        <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}"> 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.name }}</h5>
-                            {% comment %} <p class="card-text">{{ item.description|slice:"0:70" }}...</p> {% endcomment %}
-                        </div>
-                    </div>
+<!-- Gallery Section -->
+<section id="gallery" class="container my-5">
+    <h2 class="text-center text-secondary mb-4">Our Gallery</h2>
+    <div class="row">
+        {% for item in gallery_items %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-0">
+                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ item.name }}</h5>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-        {% endblock %}
-        
-    
+        {% endfor %}
+    </div>
+</section>
 
-
+{% endblock %}
